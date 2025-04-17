@@ -101,7 +101,7 @@ function SearchPage() {
 
   return (
     <div className="search-container">
-      <h1>Museekly - Lyrics Search</h1>
+      <h1>Museekly - Lyrics Search-by-Imily</h1>
       
       <form onSubmit={handleSearch} className="search-form">
         <input
