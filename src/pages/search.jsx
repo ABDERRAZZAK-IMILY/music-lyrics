@@ -5,6 +5,8 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import '../App.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
 function SearchPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -32,7 +34,7 @@ function SearchPage() {
           try {
             // Try to get additional data from Deezer via our proxy server
             const deezerResponse = await axios.get(
-              `http://localhost:3001/api/deezer/search?q=${encodeURIComponent(song.artist.name + ' ' + song.title)}`
+              `${API_URL}/api/deezer/search?q=${encodeURIComponent(song.artist.name + ' ' + song.title)}`
             );
             
             if (deezerResponse.data.data && deezerResponse.data.data.length > 0) {
